@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage("docker login") {
             steps {
-                echo " ============== docker login =========================="
+                echo " ================ docker login ======================== "
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_r5Yj', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
@@ -24,7 +24,7 @@ pipeline {
         }
         stage("create docker image") {
             steps {
-                echo " ============== start building image =================="
+                echo " ================ start building image ================ "
                 dir ('docker/toolbox') {
                 	sh 'docker build --tag r5Yj/toolbox:latest . '
                 }
@@ -32,7 +32,7 @@ pipeline {
         }
         stage("docker push") {
             steps {
-                echo " ============== start pushing image =================="
+                echo " ================ start pushing image ================= "
                 sh '''
                 docker push r5Yj/toolbox:latest
                 '''
