@@ -16,9 +16,7 @@ pipeline {
             steps {
                 echo " ==================== docker login ==================== "
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_r5Yj', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh """
-                    docker login -u $USERNAME -p $PASSWORD
-                    """
+                    sh 'docker login -u $USERNAME -p $PASSWORD'
                 }
             }
         }
@@ -33,9 +31,7 @@ pipeline {
         stage("docker push") {
             steps {
                 echo " ================= start pushing image ================= "
-                sh '''
-                docker push r5Yj/toolbox:latest
-                '''
+                sh 'docker push r5Yj/toolbox:latest'
             }
         }
     }
