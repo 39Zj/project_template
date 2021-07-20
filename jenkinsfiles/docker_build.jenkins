@@ -24,14 +24,14 @@ pipeline {
             steps {
                 echo " ================ start building image ================ "
                 dir ('docker/toolbox') {
-                    sh 'docker build --tag r5Yj/toolbox:latest . '
+                    sh 'docker build --tag r5yj/toolbox:latest . '
                 }
             }
         }
         stage("docker push") {
             steps {
                 echo " ================= start pushing image ================= "
-                sh 'docker push r5Yj/toolbox:latest'
+                sh 'docker push r5yj/toolbox:latest'
             }
         }
     }
