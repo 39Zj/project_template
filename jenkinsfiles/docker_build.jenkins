@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo " ================ start building image ================ "
                 dir ('docker/toolbox') {
-                	sh 'docker build --tag r5Yj/toolbox:latest . '
+                    sh 'docker build --tag r5Yj/toolbox:latest . '
                 }
             }
         }
